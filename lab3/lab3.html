@@ -1,0 +1,1008 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>CS 1 &mdash; Fall 2018 &mdash; Assignment 3</title>
+<style type="text/css"> 
+.centered { text-align: center }
+blockquote {
+  margin: 1em 1em;
+  background-color: #d0d0d0;
+  border: 2px solid #000;
+  padding: 0em 1em;
+}
+pre              { color: #0000bb }
+code             { color: #0000bb }
+div.solution     { color: #006644 }
+code.solution    { color: #006644 }
+pre.solution     { color: #006644 }
+p.solution       { color: #006644 }
+b.solution       { color: #006644 }
+h3.solution      { color: #006644 }
+h3.warning       { color: #ff0000 }
+p.warning        { color: #ff0000 }
+h3.gradingNotes  { color: #008090 }
+div.gradingNotes { color: #0080a0 }
+/* span.interact { color: #007700 } */
+span.interact    { color: #cc0000 }
+span.comment     { color: #007700 }
+</style>
+</head>
+<body>
+<div class="centered">
+<h1>CS 1: Introduction To Computer Programming, Fall 2018</h1>
+<h2>Assignment 3: File Under "Fractal"</h2>
+<p><b>Due:</b> <em>Thursday, November 1, 02:00:00</em></p>
+</div>
+<hr width="75%" />
+<h2>Coverage</h2>
+<p>This assignment covers the material up to lecture 9.</p>
+
+<hr />
+<h2>What to hand in</h2>
+<p>You will be handing in two files for this assignment. There is a third file
+that you can hand in as well, but you aren't required to.</p><p>You should collect the answers to sections A and B into a file called
+<code>lab3ab.py</code>.  For the questions in section B, you should write your answers
+in comments, but write the corrected code outside of comments.  Functions in
+section B will not be tested (but they will, of course, be graded!).</p><p>For section C, you should hand in the file <code>lab3c.py</code> containing your code
+for the miniproject.  You shouldn't hand in any of the files that your code
+generates, or any of the drawings either.  We can generate these ourselves.
+Similarly, don't hand in the drawing program <code>lab3c_draw.py</code> we provide for
+you!</p><p>Section D is optional, but if you do the problems there, write the solution
+code in a file called <code>lab3d.py</code>.  Many of the functions will be modifications
+or copies of the functions in <code>lab3c.py</code>; this is OK.</p><p>All files should be submitted to <a href="http://csman.cms.caltech.edu">csman</a> as usual.</p><p>There are a number of supporting files you need to download.  They include
+test scripts for both <code>lab3ab.py</code> and <code>lab3c.py</code>, called (naturally enough)
+<code>lab3ab_tests.py</code> and <code>lab3c_tests.py</code>, the template file for <code>lab3c.py</code>
+(described in detail below), the text of two Shakespeare plays (Hamlet and
+Macbeth) that you'll use for testing with <code>lab3ab_tests.py</code>, and the drawing
+program <code>lab3c_draw.py</code> you'll use with the miniproject.  To make this easy on
+you, we've collected all of these supporting files into a zip file called
+<a href="./lab3.zip">lab3.zip</a>.  You should download this onto your computer and
+unzip it to get the files you need; ask a TA if you have any problems with
+this.</p><p><b>NOTE</b>: Just because a test script works does not guarantee that your code
+is perfect; the test script may not be comprehensive.  You should <em>always</em> test
+your code by hand (interactively in the Python shell) to make sure it does what
+you expect.  Test scripts are very helpful, but they are not a crutch.</p>
+<hr />
+<h2>Honor Roll problems</h2>
+<p>In this assignment, we'll be introducing a new feature in CS 1 assignments:
+"Honor Roll" problems.  These problems are intended for those of you who have
+more programming experience and would like a challenge.  <b>They are optional
+and do not give you extra course credit.</b>  They are indicated by the notation
+"<b>[Honor Roll]</b>" where the estimated time would usually go or in the section
+title.  Honor Roll problems will each be worth some specified number of "Honor
+Roll points", which do <em>not</em> count for credit on the assignment or the course
+as a whole.  Therefore, if you aren't interested or don't have the time to do
+them, you can skip them with no penalty.  Your TA will write down how many honor
+roll points you got for each assignment and then let me know which students got
+the most points at the end of the class.  We will have some prizes for the
+students getting the most points, and it will also help you if you want to get
+letters of recommendation from us and/or want to become a CS 1 TA in the future.
+Plus, the problems are fun!</p><p>One other thing about Honor Roll problems: <b>You must do them by yourself!</b>
+You aren't allowed to ask a TA for help, or to work collaboratively with other
+students or even non-students.  Honor code rules apply.  However, you can rework
+them like any other problem.</p><p>Also, if you have an idea for a problem that you think would make a great
+Honor Roll problem, please send it to me (Mike).</p>
+<hr />
+<h2>Part A: Exercises</h2>
+<p>As usual, put docstrings in all of your functions.</p><ol>
+
+<li>
+ 
+<p>[<b>15</b>] Write a function called <code>list_reverse</code> which takes as input a list
+and returns the reverse of the list without changing the original list.  The
+function should use the <code>reverse</code> method of lists in the function body.
+<em>Hint:</em> list slices might come in handy.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; list_reverse([21, 33, 42, 67, 99])
+[99, 67, 42, 33, 21]
+&gt;&gt;&gt; list_reverse([])
+[]
+&gt;&gt;&gt; list_reverse([1])
+[1]
+&gt;&gt;&gt; lst = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; list_reverse(lst)
+[5, 4, 3, 2, 1]
+&gt;&gt;&gt; lst
+[1, 2, 3, 4, 5]   # no change to original list "lst"
+</code></pre>
+
+
+
+
+</li>
+
+<li>
+ 
+<p>[<b>20</b>] Write a function called <code>list_reverse2</code> which takes as input a list
+and returns the reverse of the list without changing the original list.  The
+function should use the <code>range</code> function and a <code>for</code> loop (but not the
+<code>reverse</code> method of lists).  <em>Hint:</em> Consider using the three-argument form of
+<code>range</code> &mdash; what should the begin point, end point, and step size be?</p>
+
+<p>Examples: same as in the previous exercise.</p>
+
+
+
+
+</li>
+
+<li>
+
+<p>[<b>20</b>] Write a function called <code>file_info</code> that takes a single input (a
+string representing the name of a text file), and returns the number of lines,
+the number of words, and the number of characters in the file as a tuple with
+three components (line count, word count, character count).  Lines are defined
+to be sequences of characters ending in a newline character, as we saw in the
+lectures.  You can use the <code>split</code> method on strings to identify the number of
+words in a line. Don't worry about punctuation; "words" here just means a
+sequence of characters separated by spaces.  The character count should include
+the newline characters at the end of each line.  Don't forget to close the file
+before your code returns.  You may assume that the file exists, so that opening
+it will not cause an error.  You may use the <code>readline</code> function in this
+exercise (though you aren't required to) but do not use the <code>readlines</code>
+function, because this may cause excessive memory use if the file is very
+large.</p>
+
+<p><em>Hint:</em> Use counter variables to store the current values of the three items
+you're computing.</p>
+
+<p>This function actually does the same thing as the Linux <code>wc</code> program, which
+stands for "<b>w</b>ord <b>c</b>ount".</p>
+
+<p><b>Examples:</b></p><pre><code># Assume that the file 'text.txt' exists and has 1009 lines, 18050 words
+# and 102418 characters.
+&gt;&gt;&gt; file_info('text.txt')
+(1009, 18050, 102418)
+</code></pre>
+
+
+
+
+</li>
+
+<li>
+ 
+<p>[<b>10</b>] Write a variant of the last function called <code>file_info2</code> which
+takes the same input (a filename) and outputs a dictionary containing the line
+count, word count, and character count using the keys <code>'lines'</code>, <code>'words'</code>,
+and <code>'characters'</code> respectively.  The body of this function should call the
+<code>file_info</code> function you just wrote above, capture the results by unpacking the
+tuple, package them into a dictionary with the appropriate keys, and return that
+dictionary.</p>
+
+<p><b>Examples:</b></p><pre><code># Same example as above.
+&gt;&gt;&gt; file_info('text.txt')
+(1009, 18050, 102418)
+&gt;&gt;&gt; file_info2('text.txt')
+{'lines': 1009, 'characters': 102418, 'words': 18050} 
+</code></pre>
+
+
+
+
+
+
+
+</li>
+
+<li>
+ 
+<p>[<b>20</b>] Write a function called <code>longest_line</code> which takes as input the
+name of a text file and returns the length of the longest line of the file, as
+well as the line itself (a (length, line) tuple is returned from the function).
+Again, make sure your function closes the file before it returns from the
+function, and don't use the <code>readlines</code> function.  If more than one line has
+the longest length, return the (length, line) corresponding to the first such
+line.  You may assume that the file has at least one line.  You should count the
+newline character at the end of the line as part of the line.</p>
+
+<p><em>Hint:</em> The pattern of using an <code>if</code> statement inside a <code>for</code> loop comes
+in handy here.</p>
+
+<p>Example:</p>
+
+<pre><code># Assume that the file 'lines.txt' exists and is at least one line long.
+&gt;&gt;&gt; longest_line('lines.txt')
+(181, 'This is a really, really, really, really, really, really, really, really, really, really, really, really, really, really, really, really, really, really, almost absurdly long line.\n')
+</code></pre>
+
+
+
+
+</li>
+
+<li>
+
+<p>[<b>10</b>]  Write a function called <code>sort_words</code> which takes in one argument
+(a string), uses the <code>split</code> method on strings to separate it into a list of
+words (removing all space characters in the process), sorts the list of strings
+(using the <code>sort</code> method on lists), and returns the sorted list of words.
+Before you begin, type in:</p>
+
+<pre><code>&gt;&gt;&gt; help(''.split)
+&gt;&gt;&gt; help([].sort)
+</code></pre>
+
+<p>to learn more about the <code>split</code> method on strings and the <code>sort</code> method on
+lists.  (Also, you should experiment with them in Wing IDE.)  The <code>sort</code> method
+compares strings by their dictionary order, so <code>'apple'</code> comes before
+<code>'banana'</code>.</p>
+
+<p>Don't worry about punctuation characters in the string; in other words, you
+can assume that the <code>split</code> method splits correctly on word boundaries.  Also,
+don't worry about capitalization; it turns out that the <code>sort</code> methods puts
+strings starting with capital letters before strings starting with lower-case
+letters, so <code>'ZZZ'</code> comes before <code>'aaa'</code>.</p> 
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; sort_words('')
+[]
+&gt;&gt;&gt; sort_words('foo bar baz')
+['bar', 'baz', 'foo']
+</code></pre>
+
+
+
+
+</li>
+
+<li>
+ 
+<p>[<b>15</b>] Convert the binary number 11011010 to decimal.  Show how you did it
+(using arithmetic; don't write any Python code).  <b>Note:</b> Typing <code>0b11011010</code>
+into the Python interpreter will give you the answer, but this is not what we
+mean by "showing how you did it"!  What is the largest eight-digit binary number
+in decimal?  Write the answers as Python comments.</p>
+
+
+
+
+</li>
+
+<li>
+
+<p>[<b>20</b>] Write a function called <code>binaryToDecimal</code> to take a list of 0s and
+1s (representing a binary number with the first digit as the first list element)
+and convert it into a Python integer.  <em>Hint:</em> Don't forget that the
+exponentiation operator ("to the power of" operator) in Python is <code>**</code>, so
+<code>2**4</code> is <code>16</code>.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; binaryToDecimal([0])
+0
+&gt;&gt;&gt; binaryToDecimal([1])
+1
+&gt;&gt;&gt; binaryToDecimal([1,0])
+2
+&gt;&gt;&gt; binaryToDecimal([1,1])
+3
+&gt;&gt;&gt; binaryToDecimal([1,0,0])
+4
+&gt;&gt;&gt; binaryToDecimal([1,0,1])
+5
+&gt;&gt;&gt; binaryToDecimal([0,0,0,1,0,1])
+5
+</code></pre>
+
+<p>Behavior on invalid inputs (non-lists, or lists of things other than the
+numbers 0 or 1, or empty lists), is unspecified, so your function doesn't have
+to handle that.</p>
+
+
+
+
+</li>
+
+<li>
+
+<p>[<b>Honor Roll</b>] Write a function called <code>decimalToBinary</code> to
+take a Python integer and convert it into a list of 0s and 1s representing the
+binary equivalent of the input integer.  The list must not have any trailing
+zeros.</p>
+
+<p>This problem is worth 2 Honor Roll points.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; decimalToBinary(1)
+[1]
+&gt;&gt;&gt; decimalToBinary(2)
+[1, 0]
+&gt;&gt;&gt; decimalToBinary(3)
+[1, 1]
+&gt;&gt;&gt; decimalToBinary(4)
+[1, 0, 0]
+&gt;&gt;&gt; decimalToBinary(5)
+[1, 0, 1]
+&gt;&gt;&gt; decimalToBinary(100)
+[1, 1, 0, 0, 1, 0, 0]
+</code></pre>
+
+<p>Note that doing this:</p>
+
+<pre><code>&gt;&gt;&gt; binaryToDecimal(decimalToBinary(n))
+</code></pre>
+
+<p>for any integer <code>n</code> should just return <code>n</code>.</p>
+
+
+
+
+</li>
+
+</ol>
+<hr />
+<h2>Part B: Pitfall: Poor coding style</h2>
+<p>In this section we'll look at what's called <em>coding style</em>.  There are many
+ways to write code which works correctly but which are hard to read and
+understand by others.  Beginning programmers, who usually haven't had the
+experience of reading or modifying code written by other programmers, tend to
+have a hard time understanding this.  The thing to remember is that even if
+you're the only one who will ever use your code, you will inevitably want to add
+new features to it at some point, and then you will have to be able to read the
+code that you yourself wrote six months, or a year, or five years ago.  If you
+can't do that easily, your productivity will suffer because you'll have to waste
+a lot of time relearning what you meant when you wrote the code originally.</p><p>Compared to most programming languages, Python tends to make it easy to write
+readable code, and over the years of Python's existence, a body of knowledge has
+accumulated about the best ways to write readable code.  Some of the guidelines
+we use have been written up in the CS 1 Python style guide (posted on the course
+Moodle page).  In this section, we will show you some examples of badly written
+code and ask you to fix it.</p><ol>
+
+<li>
+
+<p>[<b>30</b>] Go and read the Python style guide on the CS1 website.  Skip over
+those sections that deal with features of Python we haven't discussed yet in
+class.  <strong>Note:</strong> there is nothing to hand in for this exercise.  However, you
+will need to do the reading in order to answer the rest of the questions in this
+section.</p>
+
+</li>
+
+<li>
+ 
+<p>What are the style errors in the following snippets of Python code?  Write
+down what the style error(s) is/are (in comments) and write a corrected version
+(not in comments).  You can ignore style errors relating to docstrings (missing
+or present).  You can also ignore style errors relating to the content of
+comments (<em>i.e.</em> whether what they say is relevant or meaningful) but not on
+their grammar or formatting.</p>
+
+<ol>
+
+<li><p>[<b>15</b>] This example has three different kinds of style mistakes.</p>
+
+<pre><code>def sc(a,b,c): 
+    return a*a*a+b*b*b+c*c*c
+</code></pre>
+
+
+
+
+</li>
+
+<li>
+ 
+<p>[<b>20</b>] This example has four different kinds of style mistakes.</p>
+
+<pre><code>def sumofcubes(argumenta, argumentb, argumentc, argumentd):
+    #reutrn sumof cubes of argsa b c &amp;d
+    return argumenta * argumenta * argumenta + argumentb * argumentb * argumentb + argumentc * argumentc * argumentc + argumentd * argumentd * argumentd
+</code></pre>
+
+
+
+
+</li>
+
+<li><p>[<b>10</b>] This example has two different kinds of style mistakes.  They
+are somewhat less severe than the style mistakes seen so far, but they are style
+mistakes nonetheless.</p>
+
+<pre><code># 2 different kinds of style mistakes:
+def sum_of_squares(x, y):
+       return x * x + y * y
+def sum_of_three_cubes(x, y, z):
+   return x * x * x + y * y * y + z * z * z
+</code></pre>
+
+
+
+
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+<hr />
+<h2>Part C: Miniproject: L-Systems</h2>
+<p>In this week's miniproject, we'll be exploring a fascinating topic called
+<em>L-systems</em>.  An L-system is a string rewriting system (we'll explain what this
+means below) that can also be used to generate arbitrarily complex images.
+L-systems were invented by the biologist Aristid Lindenmayer as a way of
+modeling the processes involved in plant development.  L-systems can also be
+used to generate self-similar ("fractal") images, which is what we'll be doing
+here.</p><p>This will also be our first encounter with computer graphics in the course.
+Fortunately, you won't have to write the code that does the actual drawing; it
+will be provided for you.  Instead, you will be writing the code that generates
+drawing instructions and saves them to a file.  This allows us to concentrate on
+the interesting parts and leave the gory details of graphics for later (don't
+worry, we <em>will</em> cover those details later!).</p><p>Before we describe the project itself in detail, we have to cover some
+background material.  <strong>Do not skip this!  You absolutely need to know this
+before writing the code for the project.</strong>  If you do skip right to the problem
+description, we can almost guarantee that you will waste way more time than you
+save.  Also, as Douglas Adams would advise, <strong>don't panic!</strong>  Just because the
+description below is long doesn't mean that the code you need to write is long.
+In fact, there are only six functions to write, and none of them needs to be
+longer than about 20 lines.</p>
+<h3>Installing the graphics libraries</h3>
+<p>This miniproject requires that some Python graphics libraries are installed.
+To check for this, start Python 3 and enter this:</p><pre><code>&gt;&gt;&gt; import turtle
+</code></pre><p>If this doesn't give rise to an error, you'll all set.  Otherwise, get out of
+Python and type this into a terminal:</p><pre><code>$ sudo apt install python3-tk
+[enter your password]
+</code></pre><p>This will install the "Tkinter" package for Python 3, which we will have much
+more to say about in the future.  Then again start Python 3 and import the
+<code>turtle</code> module; this time it should work.  If something goes wrong, see a TA.</p><p>All of the preceding discussion assumes that you are working in the course
+VM.  If not, you can do a web search to find out what to do.</p>
+<h3>Background: Turtle graphics</h3>
+<p>Images will be drawn on the screen for this project using a system called
+<em>turtle graphics</em>.  This was originally used in the
+<a href="http://en.wikipedia.org/wiki/Logo_%28programming_language%29">Logo</a>
+programming language in the 1960s and has been ported to many other programming
+languages, including Python.  A good reference for turtle graphics is the
+<a href="http://en.wikipedia.org/wiki/Turtle_graphics">Wikipedia page</a>, and the
+Python <code>turtle</code> module is documented
+<a href="http://docs.python.org/library/turtle.html">here</a>.  (Note that the
+documentation refers to a graphics system called <code>Tk</code>.  We will learn all about
+<code>Tk</code> later on in the course, but you don't need to know anything about it now.
+Also note that Python supports a number of graphics systems that don't require
+or use turtle graphics; it's only one of many ways to do graphics.)</p><p>The basic idea of turtle graphics is to have a window on your computer screen
+which is a "canvas" which can be drawn on, and a "turtle" which is a moving
+"pen" that can draw lines on the canvas.  The "pen" can be up or down; if it's
+up it doesn't draw when it moves, and if it's down it does.  The pen has a
+location, given in (x, y) coordinates; this location starts at (0, 0), which is
+in the exact center of the drawing window.  The pen also has an orientation,
+specified in degrees from the horizontal.  An orientation of zero degrees means
+that the pen draws horizontally to the right, an orientation of 90 degrees means
+that the pen draws vertically upwards, and so on.  The position and orientation
+of the pen can be changed by commands.  So to draw a square box 10 units on a
+side, you could issue these commands:</p><pre><code># Assume that the pen is down.
+forward(10)
+right(90)     # degrees
+forward(10)
+right(90)
+forward(10)
+right(90)
+forward(10)
+right(90)
+</code></pre><p>You could substitute <code>left</code> for <code>right</code> in the code above, and it would
+also work.  You can also go to a particular location on the screen (in terms of
+its <code>x</code> and <code>y</code> coordinates) using the <code>goto</code> function.  That's basically all
+you need to know about turtle graphics for this project.  In fact, the actual
+Python code that uses the <code>turtle</code> module has been provided for you (see
+below), so you won't have to write Python code that has all kinds of <code>forward</code>,
+<code>left</code> and <code>right</code> commands.  (We want you to understand how it works,
+though.)</p>
+<h3>Background: L-systems</h3>
+<p>An L-system ("L" stands for "Lindenmayer") is a way of describing a structure
+(typically an image) using strings.  You start with an <em>axiom</em>, which is the
+starting string, and a set of rules for converting strings into new strings.
+The way this conversion works is that some of the letters in a string have
+corresponding rules that say what they should be replaced by.  To find the next
+version of a string, take each letter of the string, and if it's the left-hand
+side of any rule, replace it (in the new string) with the string which is on the
+right-hand side of the rule; otherwise, simply copy it to the new string.  You
+can repeat this process to generate yet another string, and keep going or stop
+at any point.  We'll assume that a particular character can only occur as the
+left-hand side of at most one rule.</p><p>In addition to generating new strings, the characters in a string can be
+interpreted as simple drawing commands.  Successively-generated strings will
+typically generate ever more complex drawings.  The drawings are what we're
+really interested in creating.</p><p>An example is worth a thousand words, so here's an example.  We're going to
+draw what is called a <a href="http://en.wikipedia.org/wiki/Koch_snowflake"><em>Koch
+snowflake</em></a>.  This will be one of the drawings you'll be making as part of the
+project, so pay attention!  :-)</p>
+<h4>The Koch Snowflake</h4>
+<p>The Koch snowflake will be represented as an L-system by strings containing
+three characters: "F", "+", and "-".  Each of these characters is a simple
+turtle graphics drawing instruction: "F" means to go forward one unit (the size
+of the unit is not important), "+" means to turn the turtle 60 degrees to the
+right, and "-" means to turn the turtle 60 degrees to the left.  The axiom
+(initial string) is "F++F++F".  If you think about it, what this does is to draw
+an equilateral triangle one unit on a side: "forward one unit, right 60 degrees,
+right another 60 degrees, forward one unit, right 60 degrees, right 60 degrees,
+forward one unit" and the turtle ends where it began.  If you drew it out, it
+would look like this:</p><img src="./images/koch0.jpg" alt="./images/koch0.jpg"  height="25%" width="25%" /><p>This is a pretty simple image, but the essence of L-systems is that they
+contain rules for transforming simple images into more complex ones.
+Furthermore, these rules work at the string level, not directly at the image
+level.  You specify these rules by specifying a particular character and what it
+gets transformed into.  There is only one rule for the Koch snowflake, and it is
+this: the character "F" gets transformed into the string "F-F++F-F".  Any other
+character in the string (for example, "+" or "-") is just copied into the new
+string.  So let's see how the original string would get transformed:</p><pre><code>starting string: "F++F++F"
+rule: "F" --&gt; "F-F++F-F"
+next string: "F-F++F-F" + "+" + "+" + "F-F++F-F" + "+" + "+" + "F-F++F-F"
+          --&gt; "F-F++F-F++F-F++F-F++F-F++F-F"
+</code></pre><p>Notice that the "+" characters in the starting string go unchanged into the
+next string, whereas each "F" character gets converted into the string
+"F-F++F-F" and then everything is concatenated together to give the next
+string.</p><p>If we use the new string to generate an image like we did for the starting
+string, we get the following picture (scaled to fit in the same size window):</p><img src="./images/koch1.jpg" alt="./images/koch1.jpg"  height="25%" width="25%" /><p>Notice that each edge of the original triangle has been replaced by four
+lines.  Graphically, the change is like this:</p><pre><code>                   /\
+_________  --&gt; ___/  \___
+
+</code></pre><p>After doing this, we can repeat this process over and over to get new
+images.  Each new image is "bumpier" than the one that preceded it.  Here are a
+few more images in this sequence, all resulting from the application of the
+exact same rules:</p><img src="./images/koch2.jpg" alt="./images/koch2.jpg"  height="25%" width="25%" /><img src="./images/koch3.jpg" alt="./images/koch3.jpg"  height="25%" width="25%" /><img src="./images/koch4.jpg" alt="./images/koch4.jpg"  height="25%" width="25%" /><p>Note also that some L-systems (though not the Koch snowflake) include
+characters that have no drawing action associated with them.  These serve as
+"scaffolding" for the construction of the strings which do include characters
+with graphics actions associated with them.</p><p>It's very important that you understand everything so far.  If not, ask a TA
+for help.</p>
+<h3>Some sample images</h3>
+<p>Before getting into a description of the code you have to write, let's take a
+look at some of the images you'll be generating.  The description of each image
+will include a level number which represents how many times the rules were
+applied to the starting string to get the image; level 0 means the image
+corresponds to the starting string, level 1 means that the rules were applied
+once, level 2 means twice, and so on.</p>
+<h4>The Hilbert curve</h4>
+<p>The <a href="http://en.wikipedia.org/wiki/Hilbert_curve">Hilbert curve</a> is an
+interesting set of drawings using right angles only.  Here are levels 1, 2, 3
+and 4 (level 0 has no drawing commands; see below):</p><img src="./images/hilbert1.jpg" alt="./images/hilbert1.jpg"  height="25%" width="25%" /><img src="./images/hilbert2.jpg" alt="./images/hilbert2.jpg"  height="25%" width="25%" /><img src="./images/hilbert3.jpg" alt="./images/hilbert3.jpg"  height="25%" width="25%" /><img src="./images/hilbert4.jpg" alt="./images/hilbert4.jpg"  height="25%" width="25%" />
+<h4>The Sierpinski triangle</h4>
+<p>The <a href="http://en.wikipedia.org/wiki/Sierpinski_triangle">Sierpinski
+triangle</a> is an interesting set of drawings using triangles.  These images are
+<em>fractals</em> in that the component triangles are similar to the image as a whole.
+(The Koch snowflake and Hilbert curve are also fractals, though it may not be as
+obvious.) Here are levels 0 to 4:</p><img src="./images/sierpinski0.jpg" alt="./images/sierpinski0.jpg"  height="20%" width="20%" /><img src="./images/sierpinski1.jpg" alt="./images/sierpinski1.jpg"  height="20%" width="20%" /><img src="./images/sierpinski2.jpg" alt="./images/sierpinski2.jpg"  height="20%" width="20%" /><img src="./images/sierpinski3.jpg" alt="./images/sierpinski3.jpg"  height="20%" width="20%" /><img src="./images/sierpinski4.jpg" alt="./images/sierpinski4.jpg"  height="20%" width="20%" /><p>OK, enough preamble; let's get to the code you have to write!</p><hr width="75%" />
+<h3>Template code and data representation</h3>
+<p>To give you a head start, we're supplying you with a skeleton version of the
+miniproject code called <code>lab3c.py</code> which is part of the zip file of supporting
+files mentioned at the beginning of the assignment.  Fill it in with working
+implementations of the functions.  Do this for each function by (a) writing a
+docstring (replacing the text <code>&lt;docstring&gt;</code> in the function) and (b) replacing
+the line that says <code>pass</code> with your code.  None of the functions needs to be
+more than about 20 lines long (not counting docstrings), and some can be less
+than 10 lines long.  One advantage of using the template code is that there are
+data structures defined for you in the code that you will need.</p><p>Once you've filled in your definitions, running the <code>main()</code> function will
+generate a series of drawing files for each of the L-systems in the program
+(Koch snowflake, Hilbert curve, and Sierpinski triangle).  These can then be
+turned into images, as shown below.</p><p>Let's talk a bit about how the L-systems are represented in the template
+code.  Each L-system is represented by two different Python dictionaries.  One
+contains the starting string and the rules for the L-system, and the other
+describes how characters in the L-system string are translated into drawing
+commands.</p><p>Here's an example for the Koch snowflake:</p><pre><code>koch = { 'start' : 'F++F++F', 
+         'F'     : 'F-F++F-F' }
+
+koch_draw = { 'F' : 'F 1', 
+              '+' : 'R 60', 
+              '-' : 'L 60' }
+</code></pre><p>In the first dictionary, the key <code>'start'</code> is associated with the starting
+string for that L-system (as <code>koch['start']</code>).  Then, for each kind of
+character in the string that has a rule associated with it, there is a
+corresponding key/value pair in the same dictionary.  Here, there is only one
+rule, corresponding to the character <code>'F'</code>, so that rule says to convert each
+<code>'F'</code> character into the string <code>'F-F++F-F'</code> (which is <code>koch['F']</code>).  Of
+course, Python strings are immutable so you can't just change them, but you can
+create new strings where instead of the original <code>'F'</code> character you put in
+<code>'F-F++F-F'</code>.</p><p>The dictionary <code>koch_draw</code> says how to interpret a string in terms of
+drawing instructions.  There are three types of drawing instructions, each
+consisting of a letter followed by a positive integer:</p><ol>
+
+<li><p>instructions like <code>'F 1'</code>, which means to go forward one unit in the
+direction the turtle is currently heading.</p></li>
+
+<li><p>instructions like <code>'L 60'</code>, which means to rotate the turtle to the left by
+60 degrees.  The angle can be any integer between 0 and 360.</p></li>
+
+<li><p>instructions like <code>'R 60'</code>, which is like <code>'L 60'</code> except that you rotate
+the turtle to the right.</p></li>
+
+</ol><p>You'll see how these dictionaries are used in the problems below.  For
+reference, here are the L-system representations for the Hilbert curve and for
+the Sierpinski triangle:</p><pre><code># Hilbert curve.
+hilbert  = { 'start' : 'A', 
+             'A'     : '-BF+AFA+FB-' , 
+             'B'     : '+AF-BFB-FA+' }
+
+hilbert_draw = { 'F' : 'F 1', 
+                 '-' : 'L 90', 
+                 '+' : 'R 90' }
+
+# Sierpinski triangle.
+sierpinski = { 'start' : 'F-G-G', 
+               'F'     : 'F-G+F+G-F', 
+               'G'     : 'GG' }
+
+sierpinski_draw = { 'F' : 'F 1', 
+                    'G' : 'F 1', 
+                    '+' : 'L 120', 
+                    '-' : 'R 120' }
+</code></pre><p>Note that the Hilbert curve starting string doesn't have any drawing
+commands, which is why the first Hilbert curve we can draw is level 1, not level
+0.</p><hr width="75%" />
+<h3>Functions you have to write</h3>
+<p>You have to write six functions to complete the project.</p><ol>
+
+<li><p>[<b>30</b>] Write a function called <code>update</code> which takes two arguments:</p>
+
+<ol>
+
+<li><p>a dictionary, which specifies both the starting string and the update rules
+for a particular L-system (like the <code>koch</code> dictionary described above)</p></li>
+
+<li><p>an L-system string</p></li> 
+
+</ol>
+
+<p>It will generate the next version of the L-system string by applying the
+L-system rules to each character of the string and combining all the strings
+into one big string.  Any character which is not a key in the L-system
+dictionary should be copied into the new string unchanged.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; koch = { 'start' : 'F++F++F', 'F' : 'F-F++F-F' }
+&gt;&gt;&gt; k0 = koch['start']  # starting string
+&gt;&gt;&gt; k0
+'F++F++F'
+&gt;&gt;&gt; k1 = update(koch, k0)
+&gt;&gt;&gt; k1
+'F-F++F-F++F-F++F-F++F-F++F-F'
+# same as:
+# 'F-F++F-F' + '+' + '+' + 'F-F++F-F' + '+' + '+' + 'F-F++F-F'
+&gt;&gt;&gt; k2 = update(koch, k1)
+&gt;&gt;&gt; k2
+'F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F'
+</code></pre>
+
+<p>You see that applying the rules to the starting string repeatedly makes the
+string for this L-system grow pretty quickly!</p>
+
+<p>This function is very short (less than 10 lines, not counting docstring).</p>
+
+
+
+
+</li>
+
+<li><p>[<b>10</b>] Write a function called <code>iterate</code> which takes two arguments:</p>
+
+<ol>
+
+<li><p>an L-system dictionary as described in the previous problem.</p></li>
+
+<li><p>an integer <code>n</code> which should be 0 or greater.</p></li>
+
+</ol>
+
+<p>It returns the string which results from starting with the starting string
+for that L-system and updating <code>n</code> times.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; koch = { 'start' : 'F++F++F', 'F' : 'F-F++F-F' }
+&gt;&gt;&gt; iterate(koch, 0)   # return starting string
+'F++F++F'
+&gt;&gt;&gt; iterate(koch, 1)   # apply 'F' rule once
+'F-F++F-F++F-F++F-F++F-F++F-F'
+# same as:
+# 'F-F++F-F' + '+' + '+' + 'F-F++F-F' + '+' + '+' + 'F-F++F-F'
+&gt;&gt;&gt; iterate(koch, 2)
+'F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F++F-F++F-F-F-F++F-F'
+</code></pre>
+
+<p><em>Hints:</em> This function is very easy to write (about 5 lines long) if you use
+the <code>update</code> function you just defined to do the string updating, so please do
+that!  Basically, you just have to start with the right string and use a loop.</p>
+
+
+
+
+</li>
+
+<li><p>[<b>15</b>] Write a function called <code>lsystemToDrawingCommands</code> which takes
+two arguments:</p>
+
+<ol>
+
+<li><p>a dictionary whose keys are characters in L-system strings and whose values
+are drawing commands (like <code>koch_draw</code> above)</p></li>
+
+<li><p>an L-system string</p></li>
+
+</ol>
+
+<p>It returns the list of drawing commands needed to draw the figure
+corresponding to the L-system string.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; koch = { 'start' : 'F++F++F', 'F' : 'F-F++F-F' }
+&gt;&gt;&gt; koch_draw = {'F' : 'F 1', '+' : 'R 60', '-' : 'L 60' }
+&gt;&gt;&gt; k0 = koch['start']
+&gt;&gt;&gt; lsystemToDrawingCommands(koch_draw, k0)
+['F 1', 'R 60', 'R 60', 'F 1', 'R 60', 'R 60', 'F 1']
+&gt;&gt;&gt; k1 = iterate(koch, 1)
+&gt;&gt;&gt; lsystemToDrawingCommands(koch_draw, k1)
+['F 1', 'L 60', 'F 1', 'R 60', 'R 60', 'F 1', 'L 60', 'F 1', 'R 60', 'R 60', 'F 1', 'L 60', 'F 1', 'R 60', 'R 60', 'F 1', 'L 60', 'F 1', 'R 60', 'R 60', 'F 1', 'L 60', 'F 1', 'R 60', 'R 60', 'F 1', 'L 60', 'F 1']
+</code></pre>
+
+<p>Note that there is no requirement that every character in an L-system string
+must correspond to a drawing instruction.  For instance, the Hilbert curve
+L-system generates strings with characters that don't need to be drawn; they are
+just there to make the rules work properly.  Those characters can be ignored
+when generating drawing instructions.  Basically, you check to see if a
+character is in the drawing dictionary, and if it isn't, you ignore it.
+Otherwise, you add the corresponding drawing command to the list.</p>
+
+<p>This function is very short.</p>
+
+
+
+
+</li>
+
+<li><p>[<b>45</b>] Write a function called <code>nextLocation</code> which takes four
+arguments:</p>
+
+<ol>
+<li>the current <code>x</code> coordinate value of the turtle</li>
+<li>the current <code>y</code> coordinate value of the turtle</li>
+<li>the current direction (angle from the horizontal) the turtle is facing</li>
+<li>a drawing command, like <code>'F 1'</code> or <code>'L 60'</code></li>
+</ol>
+
+<p>It generates the next location and direction of the turtle after that drawing
+command has executed.  It returns a tuple of three values, the next <code>x</code>
+coordinate of the turtle, the next <code>y</code> coordinate, and the next angle.  Note
+that the <code>x</code> and <code>y</code> values should be floating-point numbers even if the
+commands contain integers; that's because (say) going one unit at a 45 degree
+angle moves you only about 0.7071 each in the <code>x</code> and <code>y</code> directions.  You can
+still use integers for the angle, but make sure that angles lie between 0 and 360
+degrees (the <code>%</code> (remainder) operator will help here).</p>
+
+<p>This is the only tricky function in the miniproject.  You need to do a bit of
+trigonometry to calculate the new values.  You need to know that Python uses
+radians, not degrees, as arguments to the trig functions <code>sin</code> and <code>cos</code>
+(which live in the <code>math</code> module, of course).  To convert an angle in degrees
+to an angle in radians, use this formula:</p>
+
+<pre><code>(angle in radians) = (angle in degrees) * (pi / 180)
+</code></pre>
+
+<p><code>pi</code> also lives in the <code>math</code> module.</p>
+
+<p><em>Hints:</em> Use the <code>split</code> method on strings to extract the parts of a
+command (<em>i.e.</em> the letter <code>'F'</code>, <code>'R'</code> or <code>'L'</code> and the integer value).
+Note that left rotations add to the angle and right rotations subtract from it.
+Forward motions require that you compute the <code>x</code> and <code>y</code> changes using
+standard trig formulas and the current angle.  Your TA will help you if you're a
+bit shaky on the trigonometry.</p>
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; nextLocation(0.0, 0.0, 0, 'F 1')
+(1.0, 0.0, 0)
+&gt;&gt;&gt; nextLocation(0.0, 0.0, 0, 'L 60')
+(0.0, 0.0, 60)
+&gt;&gt;&gt; nextLocation(0.0, 0.0, 0, 'R 60')
+(0.0, 0.0, 300)
+&gt;&gt;&gt; nextLocation(1.0, 2.0, 60, 'F 1')
+(1.5, 2.8660254037844384, 60)
+</code></pre>
+
+
+
+
+</li>
+
+<li><p>[<b>30</b>] Write a function called <code>bounds</code> which takes one argument: a
+list of commands such as those generated by <code>lsystemToDrawingCommands</code>.  It
+computes the bounding coordinates of the resulting drawing, which means the
+minimum and maximum <code>x</code> and <code>y</code> coordinates ever achieved by the turtle as it
+moves to make the drawing.  The function returns a tuple of the <code>(xmin, xmax,
+ymin, ymax)</code> coordinates, where each coordinate is a float (not an int).</p> 
+
+<p><b>Examples:</b></p><pre><code>&gt;&gt;&gt; bounds(['F 1'])
+(0.0, 1.0, 0.0, 0.0)
+&gt;&gt;&gt; bounds(['R 90', 'F 1'])
+(-1.8369701987210297e-16, 0.0, -1.0, 0.0)
+&gt;&gt;&gt; bounds(['L 90', 'F 1'])
+(0.0, 6.123233995736766e-17, 0.0, 1.0)
+&gt;&gt;&gt; bounds(['R 45', 'F 1'])
+(0.0, 0.7071067811865475, -0.7071067811865477, 0.0)
+</code></pre>
+
+<p>Note that some of the numbers are just <code>0.0</code> with tiny roundoff errors; your
+code doesn't have to give the exact same numbers, but they should be close (say,
+within 0.0001 of the values above).  Of course, the input lists for real
+drawings would probably be a lot longer.</p>
+
+<p>This may seem to be a difficult function to write, but if you've written the
+<code>nextLocation</code> function correctly, it's very easy!  You start the <code>x</code> and <code>y</code>
+minimum/maximum values off at zero, and then for each command in the list call
+<code>nextLocation</code> with the current <code>x</code>, <code>y</code> and angle values and the command.
+Use the return values to update the current <code>x</code> and <code>y</code> coordinates and angle,
+and use that to update the minimum and maximum <code>x</code> and <code>y</code> values.  Once
+you're through the list, you'll have the overall minimum and maximum <code>x</code> and
+<code>y</code> values, which you can put into a tuple and return.</p>
+
+<p>The reason we need these bounding values at all is so that when we draw the
+figure corresponding to the list of drawing commands, we can use the bounding
+values to scale and center the figure so that it looks good.  You won't have to
+do that because it's taken care of in the drawing program you'll use to draw the
+figures (described below).</p>
+
+
+
+
+</li>
+
+<li><p>[<b>15</b>] Write a function called <code>saveDrawing</code> which takes three
+arguments:</p>
+
+<ol>
+
+<li><p>a filename to write to</p></li>
+
+<li><p>the bounds of the resulting drawing, as a tuple of floating-point numbers
+<code>(xmin, xmax, ymin, ymax)</code> (presumably generated from the <code>bounds</code> function
+described above).</p></li>
+
+<li><p>a list of drawing commands (presumably generated from the
+<code>lsystemToDrawingCommands</code> function described above).</p></li>
+
+</ol>
+
+<p>This function will write this information to the file corresponding to the
+given filename by first writing the bounds information on a single line (as four
+floating-point numbers with spaces between them but no parentheses or commas),
+and then by writing the drawing commands to the file, one per line.  You should
+use the <code>write</code> method on file objects to write lines to the file. (We haven't
+talked about this method in class, but it just writes a string to a file.)  Note
+that you have to supply the newline character yourself when you use <code>write</code> (it
+doesn't automatically supply one for you).  (Alternatively, you can use the
+<code>print</code> function with the <code>file</code> optional argument if you like.) Note also
+that the drawing commands are already in the form of strings, so writing them to
+a file is easy.  Make sure you close the file you open!</p>
+
+<p>Given a bounds tuple of <code>(0.0, 9.0, -7.79423, 2.59808)</code> and a commands list
+of <code>['F 1', 'L 60', 'F 1', 'R 60', ...]</code>, the output file's contents would look
+like this:</p>
+
+<pre><code>0.0 9.0 -7.79423 2.59808
+F 1
+L 60
+F 1
+R 60
+... (etc.)
+</code></pre>
+
+<p>This function is very short.</p>
+
+
+
+
+</li>
+
+</ol><hr width="75%" />
+<h3>The drawing program</h3>
+<p>The program you should use to display your finished graphics files is called
+<code>lab3c_draw.py</code> and is part of the zip file of supporting files mentioned
+previously.  Assuming that you have a file of drawing commands called
+<code>mydrawing</code>, you can draw it in one of two ways:</p><pre><code>$ python3 lab3c_draw.py mydrawing
+</code></pre><p>or:</p><pre><code>$ python3 lab3c_draw.py -fast mydrawing
+</code></pre><p>The <code>$</code> represents the terminal prompt (yours may be different).  You should
+run this program directly from the terminal, not from inside <code>Wing IDE</code>.  Make
+sure that the drawing file or files you want to display (<code>mydrawing</code> here) are
+in the same directory in which you are running the program.</p><p>The difference between the two ways of running the program shown above is
+that the first way will draw the drawing one line at a time, and you can watch
+it as it draws.  The second way draws the entire drawing before it displays
+anything.  The second way is greatly superior for drawings that have a large
+number of lines, since it will take dramatically less time.  The first way is
+more interesting to watch :-)</p><p>Another useful feature of the <code>lab3c_draw.py</code> program is that you can use it
+to draw multiple drawings, where each drawing's commands comes from a different
+file.  You do this by specifying the name of each file to draw on the command
+line, like this:</p><pre><code>$ python3 lab3c_draw.py mydrawing1 mydrawing2 ...
+</code></pre><p>or like this:</p><pre><code>$ python3 lab3c_draw.py -fast mydrawing1 mydrawing2 ...
+</code></pre><p>(if you want the drawings to be drawn as quickly as possible).  This will
+cause each drawing to be displayed in turn; you simply hit the <code>&lt;return&gt;</code> key
+to move from one drawing to the next (the program will prompt you to do this).
+This can be very convenient when you want to inspect a whole group of drawings.</p>
+<h3>Testing</h3>
+<p>We've provided a test suite in a program called <code>lab3c_tests.py</code> with the
+supporting files.  Run these tests to check your code.  We don't guarantee that
+they will catch all bugs, but if your code passes the tests it's a lot more
+likely that it's correct than if it doesn't!  Before running the tests, try
+running the drawing program described above on your files of drawing commands;
+if the drawings look reasonable, run the tests.  If not, you can still run the
+tests to help pinpoint the problem(s).</p>
+<h3>References</h3>
+<ul>
+
+<li><p>The <a href="http://en.wikipedia.org/wiki/L-systems">Wikipedia entry on
+L-systems</a> is a good reference on the topic.</p></li>
+
+<li><p><a href="http://www.kevs3d.co.uk/dev/lsystems/">This site</a> allows you to
+interactively experiment with L-systems in your browser, and it's fun!</p></li>
+
+</ul>
+<hr />
+<h2><b>[Honor Roll]</b> Part D: More on L-Systems</h2>
+<p>For this problem, we are going to extend the L-systems miniproject to handle
+<em>brackets</em>, which are a new special character that can occur in L-system
+strings.  This entire section should be considered as a single Honor Roll
+problem (and is thus <strong>optional</strong>, as mentioned above).</p><p>The entire section is worth 4 Honor Roll points.  Partial credit will be
+given for solutions that are partially working.  Graders will note the Honor
+Roll score in the comments submitted for the assignment. This will be the sum of
+the score for this problem and the score for the previous Honor Roll problem,
+for a maximum combined score of 6 Honor Roll points.</p>
+<h3>Brackets</h3>
+<p>The L-systems described above are sufficient to generate a lot of interesting
+images.  However, for some applications (notably, for simulating plant
+structures, which was one of the original motivations for inventing L-systems),
+it's useful to also have the two special bracket characters "[" and "]".  These
+characters don't do anything when the string is being constructed; they don't
+occur on the left-hand side of any rules, for instance, so they are just copied
+from one L-system string to the next unchanged.  However, they do do something
+when the string is being used as instructions for drawing.  What the "["
+character does is save (append) the current (x, y) coordinates of the turtle as
+well as the angle the turtle is facing onto a list.  The "]" character restores
+the last saved (x, y) coordinates and angle of the turtle by removing the last
+element from the list (we call this <em>popping</em> a value from the end of the list,
+and lists used this way are often called <em>stacks</em>) and making the previous (x,
+y) coordinates and angle the current ones.  The bracket characters allow the
+turtle to go back to a position and orientation where it was previously.  When
+the turtle is restored to a previous position and orientation, a line is not
+drawn from the last position to the new (restored) position (in turtle graphics
+terms, the "pen is up" while the coordinates are adjusted, and then the "pen is
+down" again after the adjustment, so more drawing can resume).  We can use the
+"[" and "]" characters to generate tree-like or plant-like images, and we'll do
+exactly that below.</p>
+<h3>New L-system code</h3>
+<p>We will use the following Python code to represent a plant structure as an
+L-system:</p><pre><code>plant = { 'start' : 'X', 
+          'X'     : 'F-[[X]+X]+F[+FX]-X', 
+          'F'     : 'FF' }
+
+plant_draw = { 'F' : 'F 1', 
+               '-' : 'L 25', 
+               '+' : 'R 25' }
+</code></pre><p>Note that the <code>'X'</code> key in the <code>plant</code> dictionary is bound to a string
+value that contains the bracket characters <code>'['</code> and <code>']'</code>.  We'll use this
+L-system as our example of using brackets in L-systems.</p>
+<h3>Plant pictures</h3>
+<p>Here are some plant pictures generated by using the plant L-system, from
+levels 1 to 6:</p><img src="./images/plant1.jpg" alt="./images/plant1.jpg"  height="33%" width="33%" /><img src="./images/plant2.jpg" alt="./images/plant2.jpg"  height="33%" width="33%" /><img src="./images/plant3.jpg" alt="./images/plant3.jpg"  height="33%" width="33%" /><img src="./images/plant4.jpg" alt="./images/plant4.jpg"  height="33%" width="33%" /><img src="./images/plant5.jpg" alt="./images/plant5.jpg"  height="33%" width="33%" /><img src="./images/plant6.jpg" alt="./images/plant6.jpg"  height="33%" width="33%" /><h4>Program to write</h4><p>You need to modify the code from the last section so that it can work with
+the plant L-system as well.  (Please don't change the code in <code>lab3c.py</code> that
+you will hand in; instead, copy it to a new file called <code>lab3d.py</code> and modify
+the copy.) This is actually not that hard.  Of the six functions you wrote for
+the miniproject above, you will only need to modify these ones:</p><ol>
+<li><code>lsystemToDrawingCommands</code></li>
+<li><code>nextLocation</code></li>
+</ol><p>The interface (number and name of arguments) of these functions should be
+unchanged.  Of course, include all the other L-system functions as well; your
+submission (the file <code>lab3d.py</code>) should be self-contained and it should be
+possible to generate the plant drawing files shown above just by running the
+program from the command-line.</p><p>The drawing commands generated by the L-system code need to be extended to
+handle the brackets.  A left bracket will save the current location in an
+internal data structure (appending to the end of a list works well), while a
+right bracket will remove the last saved location (popping from the end of a
+list using the <code>pop</code> method on lists works well) and output a "goto"
+instruction, which has this format:</p><pre><code>G &lt;x&gt; &lt;y&gt; &lt;angle&gt;
+</code></pre><p>where <code>&lt;x&gt;</code>, <code>&lt;y&gt;</code>, and <code>&lt;angle&gt;</code> are floating-point numbers representing
+the saved x-coordinate, y-coordinate, and angle with the horizontal,
+respectively.  Angles should only be in the range [0, 360) degrees.</p><p>Note that any list used for saving/restoring locations/angles should be a
+local variable of a function, not a global variable.  Note also that we don't
+specify the <code>'['</code> or <code>']'</code> characters as keys in the <code>plant_draw</code> dictionary,
+because there is no uniform mapping between these characters and specific
+drawing commands (the <code>'['</code> character doesn't generate any drawing commands,
+and the <code>']'</code> character generates a <code>G</code> command whose parameters depend on the
+last saved location).</p><p>The code for this problem (other than test code) should be collected into a
+file called <code>lab3d.py</code>, which should be a stand-alone Python program that can
+be run from the (terminal) command line.</p><p>Once you've written your code, you should check that it can generate the
+above figures.  Use the <code>lab3c_draw.py</code> program to draw your pictures; this
+program understands the <code>G</code> syntax for "goto" instructions.  You're also free
+to write <code>nose</code>-style tests if you like; if you do this, you can use the tests
+in this assignment as a template.</p>
+
+<hr />
+<font size="-1">Copyright (c) 2018, California Institute of
+  Technology. All rights reserved.<br />
+</font>
+</body>
+</html>
+
